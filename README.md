@@ -3,6 +3,7 @@
 This chat app allows you the communicate with all other users
 
 steps to use:
+- clone repository
 - run "npm install" in /app
 - run "npm start" in /app
 - download EXPO GO app on device
