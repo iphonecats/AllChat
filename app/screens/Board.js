@@ -87,7 +87,7 @@ export default function Board({ route }) {
               style={styles.input}
               value={formValue}
               onChangeText={(text) => setFormValue(text)}
-              placeholder="Say something nice"
+              placeholder="Type Message Here"
             />
             <Button title="Send" onPress={sendMessage} disabled={!formValue} />
           </View>
@@ -98,13 +98,20 @@ export default function Board({ route }) {
 }
 
 function ChatMessage({ message }) {
-  const { text, userName } = message;
+  const { text, userName, createdAt } = message;
+  
+  const formattedTime = new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  }).format(createdAt);
 
   return (
     <View style={styles.message}>
         <Text>
           <Text style={styles.userName}>{userName}</Text>: {text}
         </Text>
+        <Text style={styles.timestamp}>{formattedTime}</Text>
     </View>
   );
 }
@@ -153,5 +160,10 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontWeight: 'bold', // Makes the name bold
+  },
+  timestamp: {
+    marginLeft: 30,
+    fontSize: 12,
+    color: 'gray',
   },
 });
