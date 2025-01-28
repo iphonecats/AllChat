@@ -106,10 +106,12 @@ function ChatMessage({ message }) {
     hour12: true,
   }).format(createdAt);
 
+  // elaine + katerina small change testing: making text messages blue
   return (
     <View style={styles.message}>
         <Text>
-          <Text style={styles.userName}>{userName}</Text>: {text}
+          <Text style={styles.userName}>{userName}</Text>: 
+          <Text style={styles.messageText}>{text}</Text>
         </Text>
         <Text style={styles.timestamp}>{formattedTime}</Text>
     </View>
@@ -157,6 +159,9 @@ const styles = StyleSheet.create({
     borderBottomColor: 'gray',
     borderRadius: 20,
     alignItems: 'flex-start',
+  },
+  messageText: {
+    color: 'blue',    // elaine + katerina small change in testing: making text messages blue
   },
   userName: {
     fontWeight: 'bold', // Makes the name bold
